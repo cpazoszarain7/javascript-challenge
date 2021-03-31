@@ -34,9 +34,8 @@ function populate(data){
 populate(tableData)
 
 //Populate Drop down menu for Dates
-//Create Array of Unique Dates
 var Dates = tableData.map(item => item.datetime)
-
+//Create Array of Unique Dates
 var uniqueDates = Dates.filter((item, i, ar) => ar.indexOf(item) === i);
 
 dropDates = d3.select('#Dates')
@@ -49,7 +48,7 @@ uniqueDates.forEach(item =>{
 
 //Populate Dropdown menu for City
 var City = tableData.map(item => item.city)
-
+//Create Array of Unique Cities
 var uniqueCity = City.filter((item, i, ar) => ar.indexOf(item) === i);
 uniqueCity.sort()
 
@@ -63,7 +62,7 @@ uniqueCity.forEach(item =>{
 
 //Populate Dropdown menu for State
 var State = tableData.map(item => item.state)
-
+//Create Array of Unique States
 var uniqueState = State.filter((item, i, ar) => ar.indexOf(item) === i);
 uniqueState.sort()
 
@@ -77,7 +76,7 @@ uniqueState.forEach(item =>{
 
 //Populate Dropdown menu for Country
 var Country = tableData.map(item => item.country)
-
+//Create Array of Unique Countries
 var uniqueCountry = Country.filter((item, i, ar) => ar.indexOf(item) === i);
 uniqueCountry.sort()
 
@@ -92,7 +91,7 @@ uniqueCountry.forEach(item =>{
 
 //Populate Dropdown menu for Shape
 var Shape = tableData.map(item => item.shape)
-
+//Create Array of Unique Shapes
 var uniqueShape = Shape.filter((item, i, ar) => ar.indexOf(item) === i);
 uniqueShape.sort()
 console.log(uniqueShape)
@@ -137,8 +136,6 @@ function runEnter() {
     var Shape = document.getElementById("Shape");
     var ShapeFilter = Shape.options[Shape.selectedIndex].text;
 
-    // var filteredData = tableData.filter(x => x.datetime == DateFilter && x.city == CityFilter && x.state == StateFilter);
-
     //Build dictionary of filters
     var query = {
 
@@ -150,7 +147,7 @@ function runEnter() {
     }
 
 
-    //Remove from filter if defaulr value 'All' is present
+    //Remove from filter if default value 'All' is present
     clean_query={}
 
     Object.entries(query).forEach(([key,value ])=>{
